@@ -1,3 +1,4 @@
+name: Test Scan Action
 
 on:
   workflow_dispatch:
