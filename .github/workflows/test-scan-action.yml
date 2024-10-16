@@ -21,7 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Scan things"
-        uses: anchore/scan-action@49e50b215b647c5ec97abb66f69af73c46a4ca08 # v5.0.1
+        # uses: anchore/scan-action@49e50b215b647c5ec97abb66f69af73c46a4ca08 # v5.0.1
+        uses: anchore/scan-action@v4.1.2
         with:
           image: ${{ inputs.image }}
           fail-build: ${{ inputs.fail-build }}
