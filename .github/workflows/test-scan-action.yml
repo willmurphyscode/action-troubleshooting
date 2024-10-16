@@ -1,0 +1,27 @@
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "what image to scan?"
+        required: false
+        default: alpine:latest
+      fail-build:
+        description: "pass to fail-build on scan-action"
+        required: false
+        default: true
+      severity-cutoff:
+        description: "pass to severity-cutoff on scan-action"
+        required: false
+        default: ""
+
+jobs:
+  scan_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Scan things"
+        uses: anchore/scan-action@main
+        with:
+          image: ${{ inputs.image }}
+          fail-build: ${{ inputs.fail-build }}
+          severity-cutoff: ${{ inputs.severity-cutoff }}
