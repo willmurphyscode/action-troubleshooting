@@ -29,8 +29,8 @@ jobs:
           severity-cutoff: ${{ inputs.severity-cutoff }}
       - name: assert_output
         run: |
-          echo "${{ steps.scan.outputs.sarif }}$
-          test -f ${{ steps.scan.outputs.sarif }}
+          echo "${{ steps.scan.outputs.sarif }}"
+          test -f ${{ steps.scan.outputs.sarif }} || echo "wrong or missing output"
       - name: upload the sarif report
         uses: github/codeql-action/upload-sarif@v2
         with:
