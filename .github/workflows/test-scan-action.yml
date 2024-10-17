@@ -27,3 +27,7 @@ jobs:
           image: ${{ inputs.image }}
           fail-build: ${{ inputs.fail-build }}
           severity-cutoff: ${{ inputs.severity-cutoff }}
+      - name: upload the sarif report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }} 
